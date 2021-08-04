@@ -11,9 +11,11 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
+    padding-top: 30px;
     font-family: --apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     font-size: 1rem;
+    background: #dfe6e9;
   }
 `;
 
