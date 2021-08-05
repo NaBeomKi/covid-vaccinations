@@ -9,6 +9,7 @@ const SelectContainer = styled.div`
 const SelectElement = styled.select`
   border-radius: 3px;
   border-color: #ccc;
+  font-size: 1.125rem;
 `;
 
 const Select = ({ list }) => {

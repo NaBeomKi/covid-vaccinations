@@ -8,22 +8,22 @@ const ArticleElement = styled.article`
 `;
 
 const Title = styled.h2`
-  margin-bottom: 0.425rem;
-  font-size: 0.675rem;
+  margin-bottom: 0.625rem;
   color: #999;
 `;
 
 const TotalCnt = styled.span`
-  margin-bottom: 0.425rem;
+  margin-bottom: 0.625rem;
   color: ${(props) => props.color};
+  font-size: 2rem;
 `;
 
 const TodayCnt = styled.span`
-  padding: 0.125rem 0.675rem;
+  padding: 0.425rem 2rem;
   background-color: ${(props) => props.color};
   color: #fff;
   border-radius: 5rem;
-  font-size: 0.625rem;
+  font-size: 1rem;
 `;
 
 const Article = ({ title, cnt, totalCnt, color }) => {

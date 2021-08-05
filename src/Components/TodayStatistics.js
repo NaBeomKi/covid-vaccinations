@@ -5,13 +5,13 @@ import Section from "./Section";
 
 const Container = styled.div`
   display: flex;
-
-  & > article {
-    width: 50%;
-  }
+  justify-content: space-around;
 `;
 
 const TodayStatistics = ({ loading, today }) => {
+  const formatNumber = (number) =>
+    new Intl.NumberFormat({ useGrouping: true }).format(number);
+
   return (
     <Section>
       <Container>
@@ -21,14 +21,14 @@ const TodayStatistics = ({ loading, today }) => {
           <>
             <Article
               title="1차 접종"
-              cnt={today.firstCnt}
-              totalCnt={today.totalFirstCnt}
+              cnt={formatNumber(today.firstCnt)}
+              totalCnt={formatNumber(today.totalFirstCnt)}
               color="#00b894"
             />
             <Article
               title="2차 접종"
-              cnt={today.secondCnt}
-              totalCnt={today.totalSecondCnt}
+              cnt={formatNumber(today.secondCnt)}
+              totalCnt={formatNumber(today.totalSecondCnt)}
               color="#0984e3"
             />
           </>

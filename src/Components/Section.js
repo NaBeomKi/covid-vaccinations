@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const SectionElement = styled.div`
   margin: 1.25rem 0;
-  padding: 0.625rem;
+  padding: 2rem;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 0.625rem;

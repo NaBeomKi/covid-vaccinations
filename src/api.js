@@ -15,6 +15,7 @@ export const vaccineApi = {
         perPage: 99999,
         "cond[sido::EQ]": sido,
         "cond[baseDate::GTE]": date,
+        // "cond[baseDate::GTE]": "2021-07-18 00:00:00",
       },
     }),
 };

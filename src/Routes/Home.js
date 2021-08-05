@@ -7,12 +7,13 @@ import TodayStatistics from "../Components/TodayStatistics";
 import { SIDO } from "../constants";
 
 const Container = styled.div`
-  max-width: 30rem;
+  max-width: 60rem;
   margin: 0 auto;
 `;
 
 const Title = styled.h1`
   text-align: center;
+  font-size: 2.5rem;
 `;
 
 const Home = () => {
