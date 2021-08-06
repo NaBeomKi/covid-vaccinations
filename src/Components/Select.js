@@ -12,11 +12,15 @@ const SelectElement = styled.select`
   font-size: 1.125rem;
 `;
 
-const Select = ({ list }) => {
+const Select = ({ sidoList, setLocation }) => {
+  const handleChange = (e) => {
+    setLocation(e.target.value);
+  };
+
   return (
     <SelectContainer>
-      <SelectElement>
-        {list.map((name) => (
+      <SelectElement onChange={handleChange}>
+        {sidoList.map((name) => (
           <option key={name}>{name}</option>
         ))}
       </SelectElement>

@@ -1,4 +1,4 @@
-export const SIDO = [
+export const SIDO_LIST = [
   "전국",
   "서울특별시",
   "부산광역시",
@@ -17,4 +17,11 @@ export const SIDO = [
   "경상북도",
   "경상남도",
   "제주특별자치도",
+];
+
+export const PERIOD_LIST = [
+  { name: "전체", days: null },
+  { name: "1주", days: 7 },
+  { name: "1달", days: 30 },
+  { name: "3달", days: 90 },
 ];

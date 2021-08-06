@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Line } from "react-chartjs-2";
 import { ko } from "date-fns/locale";
 import "chartjs-adapter-date-fns";
 import Section from "./Section";
 import useStatistics from "../hooks/useStatistics";
+import Period from "./Period";
 
-const Chart = ({ loading, data }) => {
+const Chart = ({ loading, data, location, setStartDate }) => {
+  const [step, setStep] = useState(30);
   const chartData = useStatistics(data);
 
   return (
@@ -13,74 +15,77 @@ const Chart = ({ loading, data }) => {
       {loading ? (
         <p>📡 Loading</p>
       ) : (
-        <Line
-          data={chartData}
-          options={{
-            interaction: {
-              intersect: false,
-              mode: "index",
-            },
-            scales: {
-              y: {
-                beginAtZero: true,
+        <>
+          <Period setStartDate={setStartDate} setStep={setStep} />
+          <Line
+            data={chartData}
+            options={{
+              interaction: {
+                intersect: false,
+                mode: "index",
               },
-              x: {
-                adapters: {
-                  date: {
-                    locale: ko,
+              scales: {
+                y: {
+                  beginAtZero: true,
+                },
+                x: {
+                  adapters: {
+                    date: {
+                      locale: ko,
+                    },
+                  },
+                  type: "time",
+                  time: {
+                    stepSize: step,
+                    unit: "day",
+                    displayFormats: {
+                      day: "yyyy-MM-dd",
+                    },
+                  },
+                  grid: {
+                    display: false,
+                  },
+                  ticks: {
+                    major: {
+                      enabled: true,
+                    },
                   },
                 },
-                type: "time",
-                time: {
-                  stepSize: 30,
-                  unit: "day",
-                  displayFormats: {
-                    day: "yyyy-MM-dd",
+              },
+              plugins: {
+                title: {
+                  display: true,
+                  text: `${location} 접종 누적 통계`,
+                  align: "start",
+                  padding: 15,
+                  font: {
+                    size: 20,
                   },
                 },
-                grid: {
-                  display: false,
-                },
-                ticks: {
-                  major: {
-                    enabled: true,
+                legend: {
+                  labels: {
+                    usePointStyle: true,
                   },
                 },
-              },
-            },
-            plugins: {
-              title: {
-                display: true,
-                text: "전체 접종 누적 통계",
-                align: "start",
-                padding: 15,
-                font: {
-                  size: 20,
+                tooltip: {
+                  backgroundColor: "#fff",
+                  borderColor: "#ccc",
+                  borderWidth: 1,
+                  titleColor: "#999",
+                  titleFont: {
+                    size: 15,
+                  },
+                  titleMarginBottom: 10,
+                  bodyColor: "#666",
+                  bodyFont: {
+                    size: 15,
+                  },
+                  padding: 10,
                 },
               },
-              legend: {
-                labels: {
-                  usePointStyle: true,
-                },
-              },
-              tooltip: {
-                backgroundColor: "#fff",
-                borderColor: "#ccc",
-                borderWidth: 1,
-                titleColor: "#999",
-                titleFont: {
-                  size: 15,
-                },
-                titleMarginBottom: 10,
-                bodyColor: "#666",
-                bodyFont: {
-                  size: 15,
-                },
-                padding: 10,
-              },
-            },
-          }}
-        />
+            }}
+          />
+        </>
       )}
     </Section>
   );

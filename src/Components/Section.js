@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const SectionElement = styled.div`
+const SectionElement = styled.section`
   margin: 1.25rem 0;
   padding: 2rem;
   background: #fff;
