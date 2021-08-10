@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import styled from "styled-components";
 import { vaccineApi } from "../api";
 import Chart from "../Components/Chart";
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <Container>
+      <Helmet title="Covid-19 Vaccinations" />
       <Title>💉Covid-19 Vaccinations📈</Title>
       <Select sidoList={SIDO_LIST} setLocation={setLocation} />
       <TodayStatistics loading={loading} today={stat[stat.length - 1]} />
