@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "../Routes/Home";
 
-export default () => (
+const RouteComponent = () => (
   <Router>
     <>
       <Switch>
@@ -17,3 +17,5 @@ export default () => (
     </>
   </Router>
 );
+
+export default RouteComponent;
