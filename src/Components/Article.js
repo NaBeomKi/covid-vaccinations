@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
 const ArticleElement = styled.article`
@@ -26,7 +26,7 @@ const TodayCnt = styled.span`
   font-size: 1rem;
 `;
 
-const Article = ({ title, cnt, totalCnt, color }) => {
+const Article = memo(({ title, cnt, totalCnt, color }) => {
   return (
     <ArticleElement>
       <Title>{title}</Title>
@@ -34,6 +34,6 @@ const Article = ({ title, cnt, totalCnt, color }) => {
       <TodayCnt color={color}>{cnt} ⬆️</TodayCnt>
     </ArticleElement>
   );
-};
+});
 
 export default Article;

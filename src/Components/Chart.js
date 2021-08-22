@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { ko } from "date-fns/locale";
 import "chartjs-adapter-date-fns";
@@ -6,7 +6,7 @@ import Section from "./Section";
 import useStatistics from "../hooks/useStatistics";
 import Period from "./Period";
 
-const Chart = ({ loading, data, location, setStartDate }) => {
+const Chart = memo(({ loading, data, location, setStartDate }) => {
   const [step, setStep] = useState(30);
   const chartData = useStatistics(data);
 
@@ -89,6 +89,6 @@ const Chart = ({ loading, data, location, setStartDate }) => {
       )}
     </Section>
   );
-};
+});
 
 export default Chart;

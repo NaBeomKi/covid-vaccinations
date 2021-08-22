@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import React, { memo, useEffect, useState } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import styled from "styled-components";
 import { vaccineApi } from "../api";
 import Chart from "../Components/Chart";
@@ -17,7 +17,7 @@ const Title = styled.h1`
   font-size: 2.5rem;
 `;
 
-const Home = () => {
+const Home = memo(() => {
   const [stat, setStat] = useState([]);
   const [loading, setLoading] = useState(true);
   const [location, setLocation] = useState("전국");
@@ -41,19 +41,21 @@ const Home = () => {
   }, [location, startDate]);
 
   return (
-    <Container>
-      <Helmet title="Covid-19 Vaccinations" />
-      <Title>💉Covid-19 Vaccinations📈</Title>
-      <Select sidoList={SIDO_LIST} setLocation={setLocation} />
-      <TodayStatistics loading={loading} today={stat[stat.length - 1]} />
-      <Chart
-        loading={loading}
-        data={stat}
-        location={location}
-        setStartDate={setStartDate}
-      />
-    </Container>
+    <HelmetProvider>
+      <Container>
+        <Helmet title="Covid-19 Vaccinations" />
+        <Title>💉Covid-19 Vaccinations📈</Title>
+        <Select sidoList={SIDO_LIST} setLocation={setLocation} />
+        <TodayStatistics loading={loading} today={stat[stat.length - 1]} />
+        <Chart
+          loading={loading}
+          data={stat}
+          location={location}
+          setStartDate={setStartDate}
+        />
+      </Container>
+    </HelmetProvider>
   );
-};
+});
 
 export default Home;

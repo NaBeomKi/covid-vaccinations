@@ -20,7 +20,7 @@ export const SIDO_LIST = [
 ];
 
 export const PERIOD_LIST = [
-  { name: "전체", days: null },
+  { name: "전체", days: 0 },
   { name: "1주", days: 7 },
   { name: "1달", days: 30 },
   { name: "3달", days: 90 },

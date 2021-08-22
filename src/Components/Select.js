@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 
 const SelectContainer = styled.div`
@@ -12,7 +12,7 @@ const SelectElement = styled.select`
   font-size: 1.125rem;
 `;
 
-const Select = ({ sidoList, setLocation }) => {
+const Select = memo(({ sidoList, setLocation }) => {
   const handleChange = (e) => {
     setLocation(e.target.value);
   };
@@ -26,6 +26,6 @@ const Select = ({ sidoList, setLocation }) => {
       </SelectElement>
     </SelectContainer>
   );
-};
+});
 
 export default Select;
