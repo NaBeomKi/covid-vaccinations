@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useMemo, useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import styled from "styled-components";
 import { vaccineApi } from "../api";
@@ -44,7 +44,12 @@ const Home = memo(() => {
     <HelmetProvider>
       <Container>
         <Helmet title="Covid-19 Vaccinations" />
-        <Title>💉Covid-19 Vaccinations📈</Title>
+        {useMemo(
+          () => (
+            <Title>💉Covid-19 Vaccinations📈</Title>
+          ),
+          []
+        )}
         <Select sidoList={SIDO_LIST} setLocation={setLocation} />
         <TodayStatistics loading={loading} today={stat[stat.length - 1]} />
         <Chart
