@@ -21,7 +21,7 @@ const Button = styled.button`
 `;
 
 const Period = memo(({ setStartDate, setStep }) => {
-  const [clicked, setClicked] = useState(["true", false, false, false]);
+  const [clicked, setClicked] = useState([true, false, false, false]);
 
   const handleClick = (index) => (e) => {
     if (clicked[index]) {
